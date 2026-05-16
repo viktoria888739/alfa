@@ -1,0 +1,17 @@
+
+@media (max-width: 1100px) {
+    .grid-1-new,
+    .about-grid-container,
+    .layout-podeli-triplet,
+    .layout-split,
+    .layout-travel-triplet,
+    .layout-mobile {
+        grid-template-columns: 1fr;
+    }
+    .grid-8-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}

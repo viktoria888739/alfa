@@ -1,0 +1,928 @@
+:root {
+    --alfa-red: #ef3124;
+    --gray-bg: #ffffff;
+    --white: #ffffff;
+    --black: #1f1f1f;
+    --gray-tab: #e2e4e8;
+    --text-gray: #62656a;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: var(--nav-height);
+  background: #121213;
+  z-index: 1002;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1140px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 40px;
+  padding: var(--nav-button-paddings);
+  border-radius: var(--nav-button-radius);
+  background: #ffffff00;
+  /* transition: all 0.1s linear; */
+  cursor: pointer;
+  color: #ffffff;
+  &:hover {
+    background: #ffffffff;
+    color: #000000 !important;
+  }
+}
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 100%;
+  gap: 32px;
+}
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: var(--nav-button-paddings);
+  border-radius: var(--nav-button-radius);
+  height: 40px;
+  background: rgba(222, 222, 238, 0.13);
+  cursor: pointer;
+  color: #ffffff;
+}
+.dropdown {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: var(--nav-height);
+  left: 0;
+  height: 0px;
+  width: 100%;
+  background: #121213;
+  z-index: 1001;
+  transition: all 0.1s linear;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  padding: 20px 0;
+  &:is(.active) {
+    height: fit-content;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+.dropdown-container {
+  max-width: 1140px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-direction: row;
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 228px;
+  color: #ffffff80;
+  border-right: 1px solid #ffffff1a;
+  a {
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    transform-origin: left;
+    &:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+  }
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  height: 100%;
+  a {
+    color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      color: red !important;
+    }
+  }
+}
+.subsectionTitle {
+  color: #ffffff80 !important;
+}
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  a {
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    transform-origin: left;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000080;
+  z-index: 1000;
+  backdrop-filter: blur(50px);
+  opacity: 0;
+  pointer-events: none;
+  &:is(.active) {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+
+body {
+    background: var(--black);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--black);
+}
+
+.main-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding-bottom: 60px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.dark-section {
+    background: var(--black);
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.light-section {
+    background: var(--gray-bg);
+    border-radius: 40px 40px 0 0;
+    margin-top: -40px;
+    padding-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.tabs {
+    display: inline-flex;
+    background: var(--gray-tab);
+    padding: 4px;
+    border-radius: 30px;
+}
+
+.tab {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    background: transparent;
+}
+
+.tab.active {
+    background: var(--black);
+    color: white;
+}
+
+.grid-1-new {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    min-height: 650px;
+}
+
+.grid-left-part {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-banner {
+    flex: 2;
+    background: #9d50bb;
+    color: white;
+    border-radius: 32px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-banner h1 {
+    font-size: 36px;
+    position: relative;
+    z-index: 2;
+}
+
+.main-banner p {
+    margin-top: 15px;
+    font-size: 18px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-red-main {
+    width: max-content;
+    background: var(--alfa-red);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bottom-row {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card-cash,
+.card-free {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 32px;
+    position: relative;
+}
+
+.grid-right-part {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-right-part .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.item {
+    border-radius: 32px;
+    font-weight: bold;
+}
+
+.card-cash {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/d7/ba/1449/D_MainBento_412x128_020925.png);
+    background-color: rgb(229, 213, 242);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-free {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/d9/db/1449/D_MainBento_gold-apple-412x128_14052026.png);
+    background-color: rgb(255, 224, 189);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-credit {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/02/ed/1449/D_MainBento_267x273_230524.png);
+    background-color: rgb(189, 231, 243);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-invest {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/da/f4/1449/D_MainBento_267x273-investments-base.png);
+    background-color: rgb(0, 123, 255);
+    color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.grid-8-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card-simple {
+    min-height: 320px;
+    border-radius: 32px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 0.3s ease;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.card-subtitle {
+    font-size: 16px;
+    color: var(--text-gray);
+}
+
+.card-debit {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/25/51/1449/D_CardPromo_267_298_vertical_dc.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-credit-cards {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/91/be/1449/D_CardPromo_267x298_230524.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-loans {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/b3/74/2330/CardPromo_267x298_121123-4.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-savings {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/e3/cf/2330/CardPromo_267x298_121123-2.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-investments {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/20/9a/1449/D_CardPromo_267x298-15122025.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-mortgage {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/90/85/2330/CardPromo_267x298_121123-3.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-only {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/c9/0c/1449/D_CardPromo_267x298_071024.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-family {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/0d/ce/1449/D_CardPromo_267x298_120924.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-registration {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/07/a9/7110/D_CardPromo_267x298_221223-8.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-account {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/f4/4d/7110/D_CardPromo_267x298_221223-1.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-loans {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/97/89/1449/D_CardPromo_267x298_3_18042025.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-acquiring {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/68/28/7110/D_CardPromo_267x298_221223-10.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-cards {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/0c/91/1449/D_CardPromo_267x298_5_18042025.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-deposits {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ce/a3/60/D_CardPromo_267x298_dep.png);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-solutions {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/6b/a8/7110/D_CardPromo_267x298_221223-6.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-sm-all {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ae/91/7110/D_CardPromo_267x298_221223-7.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-account {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/07/a9/7110/D_CardPromo_267x298_221223-8.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-loans {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/b8/47/7110/D_CardPromo_267x298_221223-9.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-acquiring {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/68/28/7110/D_CardPromo_267x298_221223-10.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-factoring {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ca/fa/7110/D_CardPromo_267x298_221223-11.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-payroll {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/00/16/7110/D_CardPromo_267x298_221223-12.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-ved {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/12/05/7110/D_CardPromo_267x298_221223-13.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-investbank {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/1e/ff/7110/D_CardPromo_267x298_221223-14.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.card-bg-all {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/4b/c2/7110/D_CardPromo_267x298_221223-15.jpg);
+    background-color: rgb(242, 243, 245);
+}
+
+.promo-box-stretched {
+    display: flex;
+    background: #fbcbc5;
+    border-radius: 32px;
+    min-height: 520px;
+    overflow: hidden;
+    align-items: center;
+    gap: 40px;
+}
+
+.promo-info {
+    flex: 1.2;
+    padding: 60px;
+}
+
+.promo-info h2 {
+    font-size: 38px;
+    margin-bottom: 24px;
+}
+
+.promo-info p {
+    font-size: 16px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.promo-img-container {
+    flex: 0.8;
+    height: 100%;
+    background-color: #ef3124;
+    min-height: 520px;
+    border-radius: 32px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-red {
+    background: var(--alfa-red);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.services-left,
+.services-right {
+    display: grid;
+    gap: 20px;
+}
+
+.services-left {
+    grid-template-rows: 1fr auto;
+}
+
+.services-right {
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.service-card {
+    background: rgb(243, 244, 245);
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.rates-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dark-card {
+    background: var(--black);
+    color: white;
+}
+
+.currency-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flag-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.info-inline-card {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.card-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.service-icon-img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.tabs-fullwidth {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tabs-fullwidth .tab {
+    flex: 1;
+    text-align: center;
+}
+
+.offers-grid-container {
+    transition: opacity 0.3s;
+    margin-top: 30px;
+}
+
+.offer-card {
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.arrow-btn {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.card-mobile-connection {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/83/7f/1449/D_PureCard_461x432_240725-2.png);
+    background-position: center center;
+}
+
+.card-mobile-internet {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/cf/af/1449/D_PureCard_655x312_240725-2.png);
+    background-position: center center;
+}
+
+.card-travel-tickets {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ab/2b/1449/D_PureCard_267x204_240725.png);
+    background-color: rgb(255, 229, 246);
+    background-position: center center;
+}
+
+.card-travel-tours {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/c4/41/1449/D_PureCard_267x204_240725-1.png);
+    background-color: rgb(242, 243, 245);
+    background-position: center center;
+}
+
+.card-travel-main {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/2c/88/1449/D_PureCard_558x312_240725-2.png);
+    background-color: rgb(214, 230, 255);
+    background-position: center center;
+}
+
+.card-travel-trains {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/31/5c/1449/D_PureCard_267x204_240725-2.png);
+    background-color: rgb(242, 243, 245);
+    background-position: center center;
+}
+
+.card-travel-hotels {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/d1/01/1449/D_PureCard_267x204_24072.png);
+    background-color: rgb(255, 244, 226);
+    background-position: center center;
+}
+
+.card-afisha-promo {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/54/43/1449/D_PureCard_558x312_240725-1.png);
+    background-color: rgb(255, 229, 199);
+    background-position: center center;
+}
+
+.card-afisha-culture {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/9b/49/1449/D_PureCard_461x432_240725-1.png);
+    background-color: rgb(214, 255, 231);
+    background-position: center center;
+}
+
+.card-fuel-queues {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/54/43/1449/D_PureCard_558x312_240725-1.png);
+    background-color: rgb(255, 229, 199);
+    background-position: center center;
+}
+
+.card-fuel-cashback {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/site-presets/c9/e4/131/D_PureCard_558x432_240725.png);
+    background-color: rgb(255, 234, 238);
+    background-position: center center;
+}
+
+.card-podeli-price {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/39/ee/1449/D_PureCard_364x432_240725.png);
+    background-color: rgb(255, 234, 238);
+    background-position: center center;
+}
+
+.card-podeli-overpayments {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/45/3b/1449/D_PureCard_364x312_240725.png);
+    background-color: rgb(243, 244, 245);
+    background-position: center center;
+}
+
+.card-podeli-discounts {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/17/04/1449/D_PureCard_364x432_240725-1.png);
+    background-color: rgb(255, 229, 199);
+    background-position: center center;
+}
+
+.card-insurance-online {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ed/c6/1449/D_PureCard_461x432_240725.png);
+    background-color: rgb(235, 214, 255);
+    background-position: center center;
+}
+
+.card-insurance-all {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/76/e5/1449/D_PureCard_655x312_240725.png);
+    background-color: rgb(235, 249, 234);
+    background-position: center center;
+}
+
+.layout-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.layout-mobile .big {
+    grid-row: span 2;
+    min-height: 450px;
+}
+
+.layout-travel-triplet {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr;
+    gap: 20px;
+}
+
+.travel-col {
+    display: grid;
+    gap: 20px;
+}
+
+.travel-col-side {
+    grid-template-rows: 1fr 1fr;
+    min-height: 450px;
+}
+
+.travel-col-center {
+    grid-template-rows: 2fr 1fr;
+    min-height: 450px;
+}
+
+.layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.split-col-left {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.split-col-right {
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+}
+
+.layout-podeli-triplet {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.podeli-col-tall {
+    min-height: 450px;
+}
+
+.podeli-col-center {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.about-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+    transition: opacity 0.3s;
+}
+
+.about-col-left {
+    border-radius: 32px;
+    padding: 40px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-about-employer p,
+.card-about-future p {
+    color: #ffffff !important;
+}
+
+.about-col-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.about-mini-card {
+    background: var(--white);
+    border-radius: 32px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-about-employer {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ab/d0/1449/D_CardPure_558x444_200126.png);
+}
+
+.card-about-private {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/6e/ac/5227/D_CardPure_558x210_060525-3.png);
+}
+
+.card-about-reviews {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/bf/89/5227/D_CardPure_558x210_060525-2.png);
+}
+
+.card-about-future {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/58/e6/5227/D_CardPure_558x444_060525.png);
+}
+
+.card-about-jobs {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/f5/34/5227/D_CardPure_558x210_060525.png);
+}
+
+.card-about-svoy {
+    background-image: url(https://alfabank.servicecdn.ru/site-upload/ac/70/5227/D_CardPure_558x210_060525-1.png);
+}
