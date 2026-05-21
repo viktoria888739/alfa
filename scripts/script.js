@@ -205,15 +205,13 @@ const navigationData = {
     { title: "А-Клуб", sections: [] },
     { title: "Ещё", sections: [] },
   ],
-  "small-business": [],
-  "large-business": [],
+  "small_business": [],
+  "large_business": [],
 };
 
 let navItems = document.querySelectorAll(".nav-item");
 navItems.forEach((item) => {
   item.addEventListener("pointerenter", () => {
-    // console.log(item.dataset.nav);
-    // console.log(navigationData[item.dataset.nav]);
     let dropdown = document.querySelector(".dropdown");
     dropdown.classList.add("active");
     let overlay = document.querySelector(".overlay");
@@ -228,7 +226,6 @@ navItems.forEach((item) => {
     navContent.innerHTML = "";
     navigationData[item.dataset.nav].forEach((section) => {
       let title = document.createElement("a");
-      //   title.href = section.href;
       title.textContent = section.title;
       navTitles.appendChild(title);
       title.addEventListener("pointerenter", () => {
@@ -254,125 +251,138 @@ navItems.forEach((item) => {
         });
       });
     });
-    // section.forEach((subsection) => {
-    //   console.log(subsection);
-    // });
   });
 });
-const categoryData = {
-    all: [
-        { title: 'Дебетовые карты', sub: 'Суперкэшбэк до 100%' }, { title: 'Кредитные карты', sub: 'Обслуживание 0 ₽' }, { title: 'Кредиты', sub: 'Оформление онлайн' }, { title: 'Накопления', sub: 'Доход с первого месяца' }, { title: 'Инвестиции', sub: 'Начните зарабатывать' }, { title: 'Ипотека', sub: 'Одобрим за 60 секунд' }, { title: 'Alfa Only', sub: 'Ваш премиальный сервис' }, { title: 'Для детей и семьи', sub: 'Карты с кэшбэком' }
-    ],
-    small: [
-        { title: 'Регистрация бизнеса', sub: 'Онлайн за 0 ₽' }, { title: 'Счёт для бизнеса', sub: 'Бесплатно' }, { title: 'Кредиты', sub: 'На развитие бизнеса' }, { title: 'Эквайринг', sub: 'Комиссия от 1%' }, { title: 'Карты', sub: 'С кэшбэком до 10%' }, { title: 'Депозиты', sub: 'Онлайн от 1 дня' }, { title: 'Отраслевые решения', sub: 'Для любого бизнеса' }, { title: 'Всё для малого бизнеса', sub: 'Смотреть всё' }
-    ],
-    big: [
-        { title: 'Расчётный счёт', sub: 'Для больших компаний' }, { title: 'Кредиты', sub: 'Индивидуальные условия' }, { title: 'Эквайринг', sub: 'Масштабные решения' }, { title: 'Факторинг', sub: 'Управление дебиторкой' }, { title: 'Зарплатный проект', sub: 'Удобно всем' }, { title: 'ВЭД', sub: 'Экспертиза и сервис' }, { title: 'Инвестбанк', sub: 'Рынки капитала' }, { title: 'Всё для крупного бизнеса', sub: 'Смотреть всё' }
-    ]
-};
 
-const block5Data = {
-    mobile: { 
-        layout: 'layout-mobile', 
-        html: `<div class="offer-card big card-mobile-connection"><h3>Альфа-выгодная связь</h3><p>50 ГБ, 500 мин — от 500 ₽</p></div><div class="offer-card card-mobile-internet"><h3>Безлимитный интернет</h3><p>Бесплатно с тарифом Лайк</p></div><div class="offer-card bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>Оформить сим</h3><button class="arrow-btn">→</button></div>` 
-    },
-    travel: { 
-        layout: 'layout-travel-triplet', 
-        html: `<div class="travel-col travel-col-side"><div class="offer-card card-travel-tickets"><h3>От 5% до 10% на авиабилеты</h3></div><div class="offer-card card-travel-tours"><h3>10% за туры</h3></div></div><div class="travel-col travel-col-center"><div class="offer-card card-travel-main"><h3>Билеты с кэшбэком в Альфа-Тревел</h3></div><div class="offer-card bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>В путешествие</h3><button class="arrow-btn">→</button></div></div><div class="travel-col travel-col-side"><div class="offer-card card-travel-trains"><h3>10% за ж/д билеты</h3></div><div class="offer-card card-travel-hotels"><h3>10% за отели</h3></div></div>` 
-    },
-    afisha: { 
-        layout: 'layout-split', 
-        html: `<div class="split-col-left"><div class="offer-card card-afisha-promo"><h3>Персональные подборки и скидки</h3><p>Кэшбэк до 55%</p></div><div class="offer-card bar" style="background:#dbffdf; flex-direction:row; align-items:center; justify-content:space-between"><h3>Купить билет</h3><button class="arrow-btn">→</button></div></div><div class="offer-card split-col-right card-afisha-culture"><h3>Культурная жизнь в новом сервисе Афиша</h3><p>Билеты на шоу, спектакли, концерты в приложении банка</p></div>` 
-    },
-    fuel: { 
-        layout: 'layout-split', 
-        html: `<div class="split-col-left"><div class="offer-card card-fuel-queues"><h3>Без очередей и кассиров</h3><p>Просто приезжайте и заправляйтесь</p></div><div class="offer-card bar" style="background:#ffe9eb; flex-direction:row; align-items:center; justify-content:space-between"><h3>Найти заправку</h3><button class="arrow-btn">→</button></div></div><div class="offer-card split-col-right card-fuel-cashback"><h3>Кэшбэк до 7% на АЗС</h3><p>Оплатите одной кнопкой в приложении</p></div>` 
-    },
-    podeli: { 
-        layout: 'layout-podeli-triplet', 
-        html: `<div class="offer-card podeli-col-tall card-podeli-price"><h3>Забирайте покупки за 1/4 цены</h3></div><div class="podeli-col-center"><div class="offer-card card-podeli-overpayments"><h3>Никаких переплат</h3><p>Вы платите 1/4 суммы сразу</p></div><div class="offer-card bar" style="background:#ffe9eb; flex-direction:row; align-items:center; justify-content:space-between"><h3>40 000 магазинов</h3><button class="arrow-btn">→</button></div></div><div class="offer-card podeli-col-tall card-podeli-discounts"><h3>Скидки от партнёров</h3><p>При оплате с Подели</p></div>` 
-    },
-    insurance: { 
-        layout: 'layout-mobile', 
-        html: `<div class="offer-card big card-insurance-online"><h3>Страховой полис онлайн</h3><p>Оформите быстро на сайте</p></div><div class="offer-card card-insurance-all"><h3>Страхование для всех</h3><p>Защитим ваш дом и автомобиль</p></div><div class="offer-card bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>Выбрать свой полис</h3><button class="arrow-btn">→</button></div>` 
-    }
-};
-
-const aboutData = {
-    achievements: {
-        html: `<div class="about-col-left card-about-employer" style="color: white;"><h3>Альфа-Банк — лучший работодатель России</h3><p style="margin-top:10px;">Третий год подряд по версии HeadHunter</p></div><div class="about-col-right"><div class="about-mini-card card-about-private"><h3>Крупнейший частный банк</h3><ul><li>40 миллионов клиентов<br>выбрали нас</li><li>800+ офисов и доставка<br>в 2500 городов</li></ul></div><div class="about-mini-card card-about-reviews"><h3>Отзывы</h3><p>Мы читаем все ваши комментарии<br>о нашей работе. <br>И каждый день стараемся быть лучше</p></div></div>`
-    },
-    jobs: {
-        html: `<div class="about-col-left card-about-future" style="color: white;"><h3>Альфа-Будущее</h3><p style="margin-top:10px;">Стажировки для студентов со всей страны</p></div><div class="about-col-right"><div class="about-mini-card card-about-jobs"><h3>Вакансии в Альфа-Банке</h3><p>Ждём вас в нашей команде</p></div><div class="about-mini-card card-about-svoy"><h3>Свой в Альфе</h3><p>Делитесь выгодой<br>и зарабатывайте</p></div></div>`
-    }
-};
-
-function renderBlock5(category) {
-    const container = document.getElementById('offers-dynamic');
-    if (container && block5Data[category]) {
-        container.style.opacity = '0';
-        setTimeout(() => {
-            container.className = 'offers-grid-container ' + block5Data[category].layout;
-            container.innerHTML = block5Data[category].html;
-            container.style.opacity = '1';
-        }, 200);
-    }
+function displayFifthBlock(category) {
+  const container = document.getElementById('offers_cool');
+  if (container && fifthInf[category]) {
+    container.style.opacity = '0';
+    setTimeout(() => {
+      container.className = 'offers_gr ' + fifthInf[category].layout;
+      container.style.opacity = '1';
+      container.innerHTML = fifthInf[category].html;
+    }, 200);
+  }
 }
+const fifthInf = {
+  mobile: {
+    layout: 'mob_layer',
+    html: `<div class="offers_cardddd big mobile_conn"><h3>Альфа-выгодная связь</h3><p>50 ГБ, 500 мин — от 500 ₽</p></div><div class="offers_cardddd internet"><h3>Безлимитный интернет</h3><p>Бесплатно с тарифом Лайк</p></div><div class="offers_cardddd bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>Оформить сим</h3><button class="btn_arr">→</button></div>`
+  },
+  travel: {
+    layout: 'travel_layer',
+    html: `<div class="travel_cols travel_cols_hand"><div class="offers_cardddd travel_tick"><h3>От 5% до 10% на авиабилеты</h3></div><div class="offers_cardddd tours"><h3>10% за туры</h3></div></div><div class="travel_cols travel_cols_zhong"><div class="offers_cardddd tours_main"><h3>Билеты с кэшбэком в Альфа-Тревел</h3></div><div class="offers_cardddd bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>В путешествие</h3><button class="btn_arr">→</button></div></div><div class="travel_cols travel_cols_hand"><div class="offers_cardddd tours_trains"><h3>10% за ж/д билеты</h3></div><div class="offers_cardddd tours_hotels"><h3>10% за отели</h3></div></div>`
+  },
+  afisha: {
+    layout: 'layer_splitik',
+    html: `<div class="split_left_part"><div class="offers_cardddd afisha_prom"><h3>Персональные подборки и скидки</h3><p>Кэшбэк до 55%</p></div><div class="offers_cardddd bar" style="background:#dbffdf; flex-direction:row; align-items:center; justify-content:space-between"><h3>Купить билет</h3><button class="btn_arr">→</button></div></div><div class="offers_cardddd split_right_part afisha_cult"><h3>Культурная жизнь в новом сервисе Афиша</h3><p>Билеты на шоу, спектакли, концерты в приложении банка</p></div>`
+  },
+  fuel: {
+    layout: 'layer_splitik',
+    html: `<div class="split_left_part"><div class="offers_cardddd fuel_"><h3>Без очередей и кассиров</h3><p>Просто приезжайте и заправляйтесь</p></div><div class="offers_cardddd bar" style="background:#ffe9eb; flex-direction:row; align-items:center; justify-content:space-between"><h3>Найти заправку</h3><button class="btn_arr">→</button></div></div><div class="offers_cardddd split_right_part fuel_cash"><h3>Кэшбэк до 7% на АЗС</h3><p>Оплатите одной кнопкой в приложении</p></div>`
+  },
+  split: {
+    layout: 'layer_splitik3',
+    html: `<div class="offers_cardddd split_cols splitik_cash"><h3>Забирайте покупки за 1/4 цены</h3></div><div class="split_cols_zhong"><div class="offers_cardddd split_pay"><h3>Никаких переплат</h3><p>Вы платите 1/4 суммы сразу</p></div><div class="offers_cardddd bar" style="background:#ffe9eb; flex-direction:row; align-items:center; justify-content:space-between"><h3>40 000 магазинов</h3><button class="btn_arr">→</button></div></div><div class="offers_cardddd split_cols split_disc"><h3>Скидки от партнёров</h3><p>При оплате с Подели</p></div>`
+  },
+  insurance: {
+    layout: 'mob_layer',
+    html: `<div class="offers_cardddd big online_insur"><h3>Страховой полис онлайн</h3><p>Оформите быстро на сайте</p></div><div class="offers_cardddd every_insur"><h3>Страхование для всех</h3><p>Защитим ваш дом и автомобиль</p></div><div class="offers_cardddd bar" style="background:#dee7ff; flex-direction:row; align-items:center; justify-content:space-between"><h3>Выбрать свой полис</h3><button class="btn_arr">→</button></div>`
+  }
+};
+const categoryInf = {
 
-function renderBlock6(category) {
-    const container = document.getElementById('about-dynamic');
-    if (container && aboutData[category]) {
-        container.style.opacity = '0';
-        setTimeout(() => {
-            container.innerHTML = aboutData[category].html;
-            container.style.opacity = '1';
-        }, 200);
-    }
+  small_business: [
+    { title: 'Регистрация бизнеса', sub: 'Онлайн за 0 ₽' }, { title: 'Счёт для бизнеса', sub: 'Бесплатно' }, { title: 'Кредиты', sub: 'На развитие бизнеса' }, { title: 'Эквайринг', sub: 'Комиссия от 1%' }, { title: 'Карты', sub: 'С кэшбэком до 10%' }, { title: 'Депозиты', sub: 'Онлайн от 1 дня' }, { title: 'Отраслевые решения', sub: 'Для любого бизнеса' }, { title: 'Всё для малого бизнеса', sub: 'Смотреть всё' }
+  ],
+  big_business: [
+    { title: 'Расчётный счёт', sub: 'Для больших компаний' }, { title: 'Кредиты', sub: 'Индивидуальные условия' }, { title: 'Эквайринг', sub: 'Масштабные решения' }, { title: 'Факторинг', sub: 'Управление дебиторкой' }, { title: 'Зарплатный проект', sub: 'Удобно всем' }, { title: 'ВЭД', sub: 'Экспертиза и сервис' }, { title: 'Инвестбанк', sub: 'Рынки капитала' }, { title: 'Всё для крупного бизнеса', sub: 'Смотреть всё' }
+  ],
+  all_business: [
+    { title: 'Дебетовые карты', sub: 'Суперкэшбэк до 100%' }, { title: 'Кредитные карты', sub: 'Обслуживание 0 ₽' }, { title: 'Кредиты', sub: 'Оформление онлайн' }, { title: 'Накопления', sub: 'Доход с первого месяца' }, { title: 'Инвестиции', sub: 'Начните зарабатывать' }, { title: 'Ипотека', sub: 'Одобрим за 60 секунд' }, { title: 'Alfa Only', sub: 'Ваш премиальный сервис' }, { title: 'Для детей и семьи', sub: 'Карты с кэшбэком' }
+  ]
+};
+const aboutInf = {
+  alfa_achievements: {
+    html: `<div class="part_left_about emp_about" style="color: white;"><h3>Альфа-Банк — лучший работодатель России</h3><p style="margin-top:10px;">Третий год подряд по версии HeadHunter</p></div><div class="right_part_about"><div class="small_about private_about"><h3>Крупнейший частный банк</h3><ul><li>40 миллионов клиентов<br>выбрали нас</li><li>800+ офисов и доставка<br>в 2500 городов</li></ul></div><div class="small_about rate_about"><h3>Отзывы</h3><p>Мы читаем все ваши комментарии<br>о нашей работе. <br>И каждый день стараемся быть лучше</p></div></div>`
+  },
+  alfa_jobs: {
+    html: `<div class="part_left_about future_about" style="color: white;"><h3>Альфа-Будущее</h3><p style="margin-top:10px;">Стажировки для студентов со всей страны</p></div><div class="right_part_about"><div class="small_about alfa_jobs_about"><h3>Вакансии в Альфа-Банке</h3><p>Ждём вас в нашей команде</p></div><div class="small_about personal_about"><h3>Свой в Альфе</h3><p>Делитесь выгодой<br>и зарабатывайте</p></div></div>`
+  }
+};
+
+function displaySixthBlock(category) {
+  const container = document.getElementById('about_cool');
+  if (container && aboutInf && aboutInf[category]) {
+    container.style.opacity = '0';
+    setTimeout(() => {
+      container.innerHTML = aboutInf[category].html;
+      container.style.opacity = '1';
+    }, 200);
+  }
+  else {
+    console.error(`Данные для категории "${category}" не найдены в объекте aboutInf или контейнер отсутствует.`);
+  }
 }
 
 document.querySelectorAll('.tab').forEach(button => {
-    button.addEventListener('click', () => {
-        const parent = button.closest('.tabs');
-        const targetId = parent.dataset.target;
-        const category = button.dataset.cat;
-        parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        button.classList.add('active');
-        const container = document.getElementById(targetId);
-        if (!container) return;
+  button.addEventListener('click', () => {
+    const mama = button.closest('.tabs');
+    if (!mama) {
+      return;
+    }
 
-        if (targetId === 'grid-2' && categoryData[category]) {
-            container.style.opacity = '0';
-            setTimeout(() => {
-                const cards = container.querySelectorAll('.card-simple');
-                categoryData[category].forEach((data, index) => {
-                    if (cards[index]) {
-                        cards[index].className = 'card-simple'; 
-                        cards[index].querySelector('.card-title').textContent = data.title;
-                        cards[index].querySelector('.card-subtitle').textContent = data.sub;
-                        
-                        if (category === 'all') {
-                            const classesAll = ['card-debit', 'card-credit-cards', 'card-loans', 'card-savings', 'card-investments', 'card-mortgage', 'card-only', 'card-family'];
-                            cards[index].classList.add(classesAll[index]);
-                        }
-                        else if (category === 'small') {
-                            const classesSmall = ['card-sm-registration', 'card-sm-account', 'card-sm-loans', 'card-sm-acquiring', 'card-sm-cards', 'card-sm-deposits', 'card-sm-solutions', 'card-sm-all'];
-                            cards[index].classList.add(classesSmall[index]);
-                        }
-                        else if (category === 'big') {
-                            const classesBig = ['card-bg-account', 'card-bg-loans', 'card-bg-acquiring', 'card-bg-factoring', 'card-bg-payroll', 'card-bg-ved', 'card-bg-investbank', 'card-bg-all'];
-                            cards[index].classList.add(classesBig[index]);
-                        }
-                    }
-                });
-                container.style.opacity = '1';
-            }, 300);
+    const targetId = mama.dataset.target;
+    const category = button.dataset.cat;
+    const container = document.getElementById(targetId);
+
+    if (!container) {
+      console.error(`Контейнер с id="${targetId}" не найден на странице.`);
+      return;
+    }
+
+    mama.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    button.classList.add('active');
+    if (targetId === 'offers_cool') {
+      container.style.opacity = '0';
+
+      setTimeout(() => {
+        const cards = container.querySelectorAll('.simp_card');
+        if (typeof categoryInf !== 'undefined' && categoryInf[category]) {
+          categoryInf[category].forEach((data, index) => {
+            if (cards[index]) {
+              cards[index].className = 'simp_card';
+              cards[index].querySelector('.title_cards').textContent = data.title;
+              cards[index].querySelector('.subtitle_cards').textContent = data.sub;
+
+              if (category === 'small_business') {
+                const classesSmall = ['registr', 'accounts', 'loanssss', 'acquir', 'just_cards', 'deposits', 'solute', 'alllll'];
+                cards[index].classList.add(classesSmall[index]);
+              } else if (category === 'big_business') {
+                const classesBig = ['acc_bg', 'loans_bg', 'acq_bg', 'fact_bg', 'pay_bg', 'veddd_bg', 'invest_bg', 'allll_bg'];
+                cards[index].classList.add(classesBig[index]);
+              } else if (category === 'all_business') {
+                const classesAll = ['debit', 'credit_cards', 'loans', 'save', 'investment', 'gage', 'alone_card', 'family'];
+                cards[index].classList.add(classesAll[index]);
+              }
+            }
+          });
+        } else {
+          console.error(`Данные для бизнес-категории "${category}" не найдены в categoryInf.`);
         }
-        if (targetId === 'offers-dynamic') { renderBlock5(category); }
-        if (targetId === 'about-dynamic') { renderBlock6(category); }
-    });
+        container.style.opacity = '1';
+      }, 300);
+    }
+    if (targetId === 'about_cool') {
+      displaySixthBlock(category);
+    }
+    if (targetId === 'offers_cool') {
+      displayFifthBlock(category);
+    }
+  });
 });
-
 window.onload = () => {
-    renderBlock5('mobile');
-    renderBlock6('achievements');
+  displayFifthBlock('mobile');
+  displaySixthBlock('alfa_achievements');
 };
